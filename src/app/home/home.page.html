@@ -1,0 +1,105 @@
+<ion-header [translucent]="false" class="fixed-header">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button fill="clear">
+        <ion-icon name="menu-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="dark">ENGEX</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToCart()" fill="clear">
+        <ion-icon name="cart-outline" color="dark"></ion-icon>
+        <ion-badge color="danger" *ngIf="cartItemCount > 0">{{cartItemCount}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="home-content" [scrollEvents]="true">
+  <!-- Search Bar -->
+  <div class="search-container">
+    <ion-searchbar 
+      #searchBar
+      [(ngModel)]="searchQuery"
+      (ionInput)="onSearchSubmit()"
+      (click)="focusSearchBar()"
+      placeholder="Search for products..."
+      show-clear-button="focus"
+      class="custom-searchbar">
+    </ion-searchbar>
+  </div>
+
+  <!-- Categories Section -->
+  <div class="section-container">
+    <h2 class="section-title" style="color: white;">CATEGORIES</h2>
+    <div class="categories-grid">
+      <div class="category-item" *ngFor="let category of categories" (click)="goToCategory(category.id)">
+        <div class="category-icon">
+          <ion-icon [name]="category.icon" color="medium"></ion-icon>
+        </div>
+        <p class="category-name">{{category.name}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popular Products Section -->
+  <div class="section-container">
+    <h2 class="section-title" style="color: white;">POPULAR PRODUCTS</h2>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of popularProducts" (click)="goToProduct(product.id)">
+        <div class="product-image" [style.background]="product.gradient">
+          <img *ngIf="product.image" [src]="product.image" [alt]="product.name" />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">{{product.name}}</h3>
+          <p class="product-price">₹{{product.price}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add some extra content to test scrolling -->
+  <div class="section-container">
+    <h2 class="section-title" style="color: white;">MORE PRODUCTS</h2>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of popularProducts" (click)="goToProduct(product.id)">
+        <div class="product-image" [style.background]="product.gradient">
+          <img *ngIf="product.image" [src]="product.image" [alt]="product.name" />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">{{product.name}}</h3>
+          <p class="product-price">₹{{product.price}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom padding to prevent content being hidden behind fixed tabs -->
+  <div class="bottom-padding"></div>
+</ion-content>
+
+<!-- Fixed Bottom Navigation -->
+<div class="fixed-tabs">
+  <ion-tab-bar class="custom-tab-bar">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button (click)="viewAllProducts()">
+      <ion-icon name="heart-outline"></ion-icon>
+      <ion-label>Wishlist</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button (click)="goToCart()">
+      <ion-icon name="bag-outline"></ion-icon>
+      <ion-label>Cart</ion-label>
+      <ion-badge *ngIf="cartItemCount > 0">{{cartItemCount}}</ion-badge>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="profile">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</div>

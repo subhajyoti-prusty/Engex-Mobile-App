@@ -1,0 +1,7 @@
+{
+  "name": "Engex E-Commerce",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

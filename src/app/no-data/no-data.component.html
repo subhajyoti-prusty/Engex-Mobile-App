@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="no-data-container">
+    <div class="no-data-icon">
+      <ion-icon [name]="iconName" size="large" color="medium"></ion-icon>
+    </div>
+    
+    <h2>{{title}}</h2>
+    <p>{{message}}</p>
+
+    <ion-button color="primary" routerLink="/home" fill="solid">
+      <ion-icon name="home-outline" slot="start"></ion-icon>
+      Go Back to Home
+    </ion-button>
+  </div>
+</ion-content>
