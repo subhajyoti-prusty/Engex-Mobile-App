@@ -1,0 +1,22 @@
+<div class="loading-screen" *ngIf="isVisible">
+  <div class="loading-container">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <div class="logo-container">
+        <img src="assets/images/logo.png" alt="Engex Logo" class="logo" />
+      </div>
+      <!-- Animated loading dots -->
+      <div class="loading-animation">
+        <div class="dot dot1"></div>
+        <div class="dot dot2"></div>
+        <div class="dot dot3"></div>
+      </div>
+    </div>
+    
+    <!-- Welcome Message -->
+    <div class="welcome-section">
+      <h2 class="welcome-message">{{ message }}</h2>
+      <p class="loading-text">Loading your shopping experience...</p>
+    </div>
+  </div>
+</div>

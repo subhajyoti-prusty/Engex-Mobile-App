@@ -3,7 +3,7 @@ import { KeyboardResize, KeyboardStyle } from '@capacitor/keyboard';
 
 const config: CapacitorConfig = {
   appId: 'com.engex.engexecommerce',
-  appName: 'Engex E-Commerce',
+  appName: 'Engex',
   webDir: 'www',
   plugins: {
     App: {

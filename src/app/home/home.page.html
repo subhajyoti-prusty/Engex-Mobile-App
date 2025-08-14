@@ -1,3 +1,7 @@
+<!-- Loading Screen -->
+<app-loading-screen [isVisible]="isLoading" message="Welcome to Engex"></app-loading-screen>
+
+<!-- Main Content -->
 <ion-header [translucent]="false" class="fixed-header">
   <ion-toolbar color="light">
     <ion-buttons slot="start">
@@ -18,14 +22,8 @@
 <ion-content class="home-content" [scrollEvents]="true">
   <!-- Search Bar -->
   <div class="search-container">
-    <ion-searchbar 
-      #searchBar
-      [(ngModel)]="searchQuery"
-      (ionInput)="onSearchSubmit()"
-      (click)="focusSearchBar()"
-      placeholder="Search for products..."
-      show-clear-button="focus"
-      class="custom-searchbar">
+    <ion-searchbar #searchBar [(ngModel)]="searchQuery" (ionInput)="onSearchSubmit()" (click)="focusSearchBar()"
+      placeholder="Search for products..." show-clear-button="focus" class="custom-searchbar">
     </ion-searchbar>
   </div>
 
@@ -85,18 +83,18 @@
       <ion-icon name="home"></ion-icon>
       <ion-label>Home</ion-label>
     </ion-tab-button>
-    
+
     <ion-tab-button (click)="viewAllProducts()">
       <ion-icon name="heart-outline"></ion-icon>
       <ion-label>Wishlist</ion-label>
     </ion-tab-button>
-    
+
     <ion-tab-button (click)="goToCart()">
       <ion-icon name="bag-outline"></ion-icon>
       <ion-label>Cart</ion-label>
       <ion-badge *ngIf="cartItemCount > 0">{{cartItemCount}}</ion-badge>
     </ion-tab-button>
-    
+
     <ion-tab-button tab="profile">
       <ion-icon name="person-outline"></ion-icon>
       <ion-label>Profile</ion-label>

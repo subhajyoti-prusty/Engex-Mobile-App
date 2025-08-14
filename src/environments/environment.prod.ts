@@ -3,7 +3,7 @@ export const environment = {
   appName: 'Engex E-Commerce',
   appId: 'com.engex.engexecommerce',
   appVersion: '1.0.0',
-  appLogoPath: 'assets/images/logo.jpg',
+  appLogoPath: 'assets/images/logo.png',
   appServerLogoName: 'app-logo.png',
   portalURL: 'https://dev.engex.com/',
   appBaseURL: 'https://api.engex.com/',
