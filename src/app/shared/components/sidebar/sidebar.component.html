@@ -1,0 +1,59 @@
+<div class="sidebar-overlay" [class.open]="isOpen" (click)="onCloseSidebar()">
+  <div class="sidebar" [class.open]="isOpen" (click)="$event.stopPropagation()">
+
+    <!-- User Profile Section -->
+    <div class="user-profile">
+      <div class="profile-image">
+        <img src="assets/images/logo.png" alt="Profile" />
+      </div>
+      <div class="user-details">
+        <h3>{{ userInfo.name }}</h3>
+        <p>{{ userInfo.phone }}</p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Main Menu Items -->
+    <div class="menu-section">
+      <ion-item 
+        button 
+        lines="none" 
+        class="menu-item"
+        *ngFor="let item of menuItems"
+        (click)="item.action()">
+        <ion-icon [name]="item.icon" slot="start" color="primary"></ion-icon>
+        <ion-label>{{ item.label }}</ion-label>
+      </ion-item>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Settings Menu Items -->
+    <div class="menu-section">
+      <ion-item
+        button 
+        lines="none"
+        class="menu-item"
+        *ngFor="let item of settingsItems"
+        (click)="item.action()">
+        <ion-icon [name]="item.icon" slot="start" color="primary"></ion-icon>
+        <ion-label>{{ item.label }}</ion-label>
+      </ion-item>
+    </div>
+
+    <!-- Logout Button -->
+    <div class="logout-section">
+      <ion-button 
+        expand="block" 
+        fill="clear" 
+        color="danger" 
+        class="logout-button"
+        (click)="onLogout()">
+        Log Out
+      </ion-button>
+    </div>
+  </div>
+</div>

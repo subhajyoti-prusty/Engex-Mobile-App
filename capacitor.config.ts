@@ -32,17 +32,17 @@ const config: CapacitorConfig = {
     SplashScreen: {
       launchShowDuration: 3000,
       launchAutoHide: true,
-      backgroundColor: "#ffffffff",
+      backgroundColor: "#ffffff",
       androidSplashResourceName: "splash",
       androidScaleType: "CENTER_CROP",
       showSpinner: false,
       androidSpinnerStyle: "large",
       iosSpinnerStyle: "small",
       spinnerColor: "#999999",
-      splashFullScreen: false, // Allow normal status bar
-      splashImmersive: false, // Allow normal navigation
+      splashFullScreen: true,
+      splashImmersive: true,
       layoutName: "launch_screen",
-      useDialog: false // Use normal splash, not dialog
+      useDialog: true
     }
   },
   server: {

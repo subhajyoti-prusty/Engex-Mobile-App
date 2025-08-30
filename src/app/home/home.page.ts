@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonSearchbar } from '@ionic/angular';
+import { SidebarService } from '../shared/services/sidebar.service';
 
 @Component({
   selector: 'app-home',
@@ -56,7 +57,8 @@ export class HomePage implements OnInit {
   ];
 
   constructor(
-    private router: Router
+    private router: Router,
+    public sidebarService: SidebarService
   ) {
     // Initialize loading state
   }
@@ -151,5 +153,72 @@ export class HomePage implements OnInit {
     if (this.searchBar) {
       this.searchBar.setFocus();
     }
+  }
+
+  // Sidebar methods
+  openSidebar() {
+    this.sidebarService.openSidebar();
+  }
+
+  closeSidebar() {
+    this.sidebarService.closeSidebar();
+  }
+
+  onSidebarMenuClick(itemId: string) {
+    this.closeSidebar();
+    
+    // Handle menu item clicks
+    switch(itemId) {
+      case 'my-account':
+        this.router.navigate(['/no-data']);
+        break;
+      case 'order-history':
+        this.router.navigate(['/no-data']);
+        break;
+      case 'my-addresses':
+        this.router.navigate(['/no-data']);
+        break;
+      case 'view-last-order':
+        this.router.navigate(['/no-data']);
+        break;
+      case 'settings':
+        this.router.navigate(['/no-data']);
+        break;
+      case 'contact-us':
+        this.router.navigate(['/no-data']);
+        break;
+      case 'need-help':
+        this.router.navigate(['/no-data']);
+        break;
+      case 'share':
+        this.shareApp();
+        break;
+      case 'logout':
+        this.logout();
+        break;
+      default:
+        console.log('Menu item clicked:', itemId);
+    }
+  }
+
+  private shareApp() {
+    // Implement app sharing functionality
+    if (navigator.share) {
+      navigator.share({
+        title: 'Engex App',
+        text: 'Check out this amazing app!',
+        url: window.location.href
+      });
+    } else {
+      // Fallback for browsers that don't support Web Share API
+      console.log('Share functionality not supported');
+    }
+  }
+
+  private logout() {
+    // Implement logout functionality
+    console.log('Logout clicked');
+    // You can add your logout logic here
+    // For example: clear user data, redirect to login page, etc.
   }
 }

@@ -1,0 +1,223 @@
+// Force white background for sidebar regardless of theme
+:host {
+  .sidebar {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+  }
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100%;
+  background-color: #ffffff !important;
+  color: #333333 !important;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+
+  // Override any dark mode styles
+  * {
+    color: #333333 !important;
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  @media (max-width: 480px) {
+    width: 280px;
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fafafa;
+
+  ion-button {
+    margin-right: 8px;
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  padding: 24px 20px;
+  gap: 16px;
+  background-color: #ffffff !important;
+
+  .profile-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .user-details {
+    flex: 1;
+
+    h3 {
+      margin: 0 0 4px 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333 !important;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #666 !important;
+    }
+  }
+}
+
+.divider {
+  height: 1px;
+  background-color: #f0f0f0;
+  margin: 0 20px;
+}
+
+.menu-section {
+  padding: 16px 0;
+  background-color: #ffffff !important;
+
+  .menu-item {
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --inner-padding-end: 0px;
+    --min-height: 48px;
+    margin-bottom: 4px;
+    background-color: #ffffff !important;
+    --background: #ffffff !important;
+    --background-activated: #e8edff !important;
+    --background-hover: #f8f9ff !important;
+    --color: #333333 !important;
+
+    ion-icon {
+      font-size: 20px;
+      margin-right: 16px;
+      color: #667eea !important;
+    }
+
+    ion-label {
+      font-size: 16px;
+      color: #333 !important;
+      font-weight: 500;
+      --color: #333333 !important;
+    }
+
+    &:hover {
+      background-color: #f8f9ff !important;
+      --background: #f8f9ff !important;
+    }
+
+    &:active {
+      background-color: #e8edff !important;
+      --background: #e8edff !important;
+    }
+  }
+}
+
+.logout-section {
+  padding: 20px;
+  margin-top: auto;
+  background-color: #ffffff !important;
+
+  .logout-button {
+    --color: #e74c3c;
+    --border-color: #e74c3c;
+    --border-width: 1px;
+    --border-style: solid;
+    --background: transparent;
+    font-weight: 600;
+    height: 48px;
+    margin: 0;
+
+    &:hover {
+      --background: #fee;
+    }
+  }
+}
+
+.bottom-home {
+  padding: 16px 20px;
+  border-top: 1px solid #f0f0f0;
+  background-color: #fafafa;
+  text-align: center;
+
+  ion-button {
+    --color: #333;
+    --padding-start: 0;
+    --padding-end: 0;
+
+    ion-icon {
+      font-size: 24px;
+    }
+  }
+}
+
+// Smooth scrolling
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 2px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
