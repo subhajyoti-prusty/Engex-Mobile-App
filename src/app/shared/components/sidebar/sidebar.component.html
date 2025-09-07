@@ -46,13 +46,9 @@
 
     <!-- Logout Button -->
     <div class="logout-section">
-      <ion-button 
-        expand="block" 
-        fill="clear" 
-        color="danger" 
-        class="logout-button"
-        (click)="onLogout()">
-        Log Out
+      <ion-button expand="block" [color]="isLoggedIn ? 'danger' : 'primary'" (click)="isLoggedIn ? onLogout() : onLogin()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        {{ isLoggedIn ? 'Logout' : 'Login' }}
       </ion-button>
     </div>
   </div>

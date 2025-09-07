@@ -15,11 +15,12 @@ export interface SidebarMenuItem {
 export class SidebarComponent {
   @Input() isOpen: boolean = false;
   @Input() userInfo = {
-    name: 'Subhajyoti Prusty',
-    phone: '+91 7788081947',
-    initials: 'SP'
+    name: 'Welcome User',
+    phone: 'xxx-xxx-xxxx',
   };
-  
+
+  isLoggedIn: boolean = true;
+
   @Output() closeSidebar = new EventEmitter<void>();
   @Output() menuItemClicked = new EventEmitter<string>();
 
@@ -88,6 +89,14 @@ export class SidebarComponent {
   }
 
   onLogout() {
+    console.log('User logged out successfully');
+    this.isLoggedIn = false;
     this.menuItemClicked.emit('logout');
+  }
+
+  onLogin() {
+    console.log('User logged in successfully');
+    this.isLoggedIn = true;
+    this.menuItemClicked.emit('login');
   }
 }

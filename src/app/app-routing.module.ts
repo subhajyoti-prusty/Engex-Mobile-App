@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'no-data',
     loadChildren: () => import('./no-data/no-data.module').then( m => m.NoDataModule)
   },
+  {
+    path: 'product',
+    loadChildren: () => import('./product/product.module').then( m => m.ProductPageModule)
+  },
 ];
 
 @NgModule({
